@@ -1,0 +1,42 @@
+.main-body{
+  background-color:black;
+  color: white;
+}
+
+.mrg-r{
+  margin-right:4%;
+}
+.nav-link{
+  color:white !important;
+}
+.extra-prop{
+  justify-content: center;
+  align-items:center;
+}
+.custom-row{
+  display:flex;
+  justify-content: center;
+  align-content: center;
+}
+.btn1{
+  width:100%;
+}
+
+
+form label {
+    display: inline-block;
+    width: 100px;
+  }
+   
+  form div {
+    margin-bottom: 10px;
+  }
+   
+  .error {
+    color: red;
+    margin-left: 5px;
+  }
+   
+  label.error {
+    display: inline;
+  }
