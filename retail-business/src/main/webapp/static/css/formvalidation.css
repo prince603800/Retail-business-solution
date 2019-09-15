@@ -21,8 +21,20 @@
 .btn1{
   width:100%;
 }
-
-
+.container-class{
+  background-image: url("../images/kv.jpg");
+    background-size: cover;
+        background-repeat: no-repeat;
+   
+}
+.margin-tb{
+	margin-top:4%;
+	margin-bottom:4%;
+}
+.form-div{
+  margin-top:2%;
+  margin-bottom:6%;
+}
 form label {
     display: inline-block;
     width: 100px;
@@ -39,4 +51,7 @@ form label {
    
   label.error {
     display: inline;
+  }
+  .image-prop{
+    width:100%;
   }

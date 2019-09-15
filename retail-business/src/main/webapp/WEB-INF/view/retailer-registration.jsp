@@ -23,9 +23,9 @@
 			<form:button>Submit</form:button>
 	</form:form> --%>
 	
-	<div class="container">
+	<div class="container-fluid container-class">
             <div class = "custom-row"> 
-            <div class = "col-sm-12 col-md-6">   
+            <div class = "col-sm-12 col-md-5 margin-tb">   
             <h2>Retailer Registration Form</h2>
                 <form:form action="retailer-registration" method = "post" modelAttribute = "retailerInfo" id="second_form">
                   <div class="form-group">

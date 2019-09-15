@@ -41,15 +41,19 @@ public class CustomerController {
 		System.out.println(customerInfo.getFname() +" "+ customerInfo.getLname()+" "+ customerInfo.getPanNo()+ " "+customerInfo.getAddress()+ " "+customerInfo.getPhoneNo()+" "+customerInfo.getPsword1()+customerInfo.getUser_email());
 		customerService.registerCustomer(customerInfo);
 		
-		return null;
+		return "login-form";
 	}
 	
-	@PostMapping("/customer-registration")
+	@PostMapping("/retailer-registration")
 	public String registrationConfirmation(@ModelAttribute ("retailerInfo") RetailerInfo retailerInfo) {
 		customerService.registerRetailer(retailerInfo);
 		
-		return null;
+		return "login-form";
 	}
 	
+	@GetMapping("/login-form")
+	public String loginform(Model theModel) {
+		
+	}
 	
 }

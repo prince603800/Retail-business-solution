@@ -1,1 +1,1 @@
-<% response.sendRedirect("customerController/cr-page"); %>
+<% response.sendRedirect("customerController/re-page"); %>
