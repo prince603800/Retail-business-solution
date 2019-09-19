@@ -13,29 +13,29 @@
             <div class = "row" style = "justify-content: center;"> 
             <div class = "col-sm-12 col-md-4 form-div">   
             <h2>Login As  Customer</h2>
-                <form action="" method = "post" id="second_form">               
+                <form:form action="cu-login" method = "post" modelAttribute = "customerInfo" id="second_form">               
                    <div class="form-group">
-                         <input type="email" class="form-control" id="user_email" placeholder="Enter email" name="user_email">
+                         <form:input type="email" class="form-control" id="user_email" placeholder="Enter email" path="user_email"/>
                     </div>
                    
                   <div class="form-group">
-                    <input type="password" class="form-control" id="psword1" placeholder="Enter password" name="psword1">
+                    <form:input type="password" class="form-control" id="psword1" placeholder="Enter password" path="psword1"/>
                   </div>       
                   <button type="submit" class="btn1">Submit</button>
-                </form>
+                </form:form>
             </div>
             <div class = "col-sm-12 col-md-4 form-div">   
                 <h2>Login As Retailer</h2>
-                    <form action="" method = "post" id="login-form">               
+                    <form:form action="re-login" method = "post" modelAttribute = "retailerInfo" id="login-form">               
                        <div class="form-group">
-                             <input type="email" class="form-control" id="user_email" placeholder="Enter email" name="user_email">
+                             <form:input type="email" class="form-control" id="user_email" placeholder="Enter email" path="user_email"/>
                         </div>
                        
                       <div class="form-group">
-                        <input type="password" class="form-control" id="psword1" placeholder="Enter password" name="psword1">
+                        <form:input type="password" class="form-control" id="psword1" placeholder="Enter password" path="psword1"/>
                       </div>       
                       <button type="submit" class="btn1">Submit</button>
-                    </form>
+                    </form:form>
                 </div>
            
             </div>

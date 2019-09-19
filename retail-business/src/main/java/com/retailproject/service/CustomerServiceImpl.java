@@ -27,4 +27,22 @@ public class CustomerServiceImpl implements CustomerService {
 		
 	}
 
+	@Override
+	@Transactional
+	public boolean logincheckcustomer(CustomerInfo customerInfo) {
+		System.out.println("inside logincheck customer");
+		boolean user_exists = customerDao.logincheckcustomer(customerInfo);
+		
+		return user_exists;
+	}
+
+	@Override
+	@Transactional
+	public boolean logincheckretaile(RetailerInfo retailerInfo) {
+		boolean user_exists = customerDao.logincheckretailer(retailerInfo);
+		return user_exists;
+	}
+
+	
+
 }

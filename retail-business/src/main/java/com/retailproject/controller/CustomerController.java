@@ -41,19 +41,55 @@ public class CustomerController {
 		System.out.println(customerInfo.getFname() +" "+ customerInfo.getLname()+" "+ customerInfo.getPanNo()+ " "+customerInfo.getAddress()+ " "+customerInfo.getPhoneNo()+" "+customerInfo.getPsword1()+customerInfo.getUser_email());
 		customerService.registerCustomer(customerInfo);
 		
-		return "login-form";
+		return "redirect:/customerController/login-form";
 	}
 	
 	@PostMapping("/retailer-registration")
 	public String registrationConfirmation(@ModelAttribute ("retailerInfo") RetailerInfo retailerInfo) {
 		customerService.registerRetailer(retailerInfo);
 		
-		return "login-form";
+		return "redirect:/customerController/login-form";
 	}
 	
 	@GetMapping("/login-form")
 	public String loginform(Model theModel) {
+		CustomerInfo customerInfo = new CustomerInfo();
+		RetailerInfo retailerInfo = new RetailerInfo();
+		theModel.addAttribute("customerInfo", customerInfo);
+		theModel.addAttribute("retailerInfo",retailerInfo);
+		return "login-form";
+	}
+	
+	@PostMapping("/cu-login")
+	public String clogin(@ModelAttribute ("customerInfo") CustomerInfo customerInfo) {
 		
+		
+		boolean user_exists = customerService.logincheckcustomer(customerInfo);
+		
+		if(user_exists==true) {
+			return "customer-dashboard";
+		}
+		
+		else {
+			return "login-form";
+	}
+	
+	}
+	
+	@PostMapping("/re-login")
+	public String rlogin(@ModelAttribute ("retailerInfo") RetailerInfo retailerInfo) {
+		System.out.println(retailerInfo.getUser_email());
+		System.out.println(retailerInfo.getPsword1());
+		
+		boolean user_exists= customerService.logincheckretaile(retailerInfo);
+		
+		if(user_exists==true) {
+			return "retailer-dashboard";
+		}
+		
+		else {
+			return "login-form";
+	}
 	}
 	
 }
