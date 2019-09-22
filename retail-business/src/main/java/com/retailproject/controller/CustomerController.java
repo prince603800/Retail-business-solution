@@ -61,17 +61,18 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/cu-login")
-	public String clogin(@ModelAttribute ("customerInfo") CustomerInfo customerInfo) {
+	public String clogin(@ModelAttribute ("customerInfo") CustomerInfo customerInfo,Model theModel) {
 		
 		
 		boolean user_exists = customerService.logincheckcustomer(customerInfo);
 		
 		if(user_exists==true) {
+			
 			return "customer-dashboard";
 		}
 		
 		else {
-			return "login-form";
+			return "redirect:/customerController/login-form";
 	}
 	
 	}

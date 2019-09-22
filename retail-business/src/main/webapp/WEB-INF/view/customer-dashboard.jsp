@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Hello to  Customer dashboard!!!
+	<p>Hello  ${customerInfo.fname}  to  Customer dashboard!!!</p>
 	Add new Retailer
 	Select a Retailer
 </body>
