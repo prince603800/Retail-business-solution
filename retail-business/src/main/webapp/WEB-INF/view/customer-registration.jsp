@@ -7,7 +7,7 @@
 <html>
 <jsp:include page="common/head.jsp"></jsp:include>
 <link type = "text/css" rel = "stylesheet" href = "${pageContext.request.contextPath}/static/css/formvalidation.css">
-<body class = "main-body">
+<body class = "main-body container-class">
 	<jsp:include page="common/header.jsp"></jsp:include>
 	
 		
@@ -23,7 +23,7 @@
 			<form:button>Submit</form:button>
 	</form:form> --%>
 	
-	<div class="container-fluid container-class">
+	<div class="container-fluid">
             <div class = "custom-row"> 
             <div class = "col-sm-12 col-md-5 margin-tb">   
             <h2>Customer Registration Form</h2>

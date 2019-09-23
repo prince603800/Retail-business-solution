@@ -1,14 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	<p>Hello  ${customerInfo.fname}  to  Customer dashboard!!!</p>
-	Add new Retailer
+<jsp:include page="common/head.jsp"></jsp:include>
+<link type = "text/css" rel = "stylesheet" href = "${pageContext.request.contextPath}/static/css/formvalidation.css">
+<body class = "main-body container-class">
+	<jsp:include page="common/header.jsp"></jsp:include>
+	<p>Hello  ${validcustomer.fname}  to  Customer dashboard!!!</p>
+	 
+	 <h3>Please select one retailer!!!</h3>
+	 
+	 
+	
+	 <div class = "container">
+            <div class = "row">
+             	<c:forEach items = "${retailersInfo}" var = "listRetailers">
+                <div class = "col-sm-4">
+                    <div class = "retailer-card">
+                        <p class = "rl-n">RetailerName: <span>${listRetailers.fname}  ${listRetailers.lname}</span></p>
+                        <p class = "rl-p">Address: <span>${listRetailers.address}</span> </p>
+                        <p class = "rl-p">Vat No: <span>${listRetailers.vatNo}</span></p>
+                        <p class = "rl-p">Phone No: <span>${listRetailers.phoneNo}</span></p>
+                        <button class = "rl-btn">Select Retailer</button>
+                    </div>
+                </div>
+                </c:forEach>
+               </div>
+          </div>
+	
+	
+	
+	
+
+	
+	List of all Retailers
+	<c:forEach items = "${retailersInfo}" var = "listRetailers">
+			${listRetailers.fname}<br>
+			${listRetailers.lname}<br>
+		
+	</c:forEach>
+	
+	
+	
+	
 	Select a Retailer
+	
+	
 </body>
 </html>

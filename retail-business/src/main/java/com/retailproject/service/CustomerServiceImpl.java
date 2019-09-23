@@ -1,5 +1,7 @@
 package com.retailproject.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,11 +31,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	@Transactional
-	public boolean logincheckcustomer(CustomerInfo customerInfo) {
+	public List<CustomerInfo> logincheckcustomer(CustomerInfo customerInfo) {
 		System.out.println("inside logincheck customer");
-		boolean user_exists = customerDao.logincheckcustomer(customerInfo);
+		List<CustomerInfo> list = customerDao.logincheckcustomer(customerInfo);
 		
-		return user_exists;
+		return list;
 	}
 
 	@Override
@@ -41,6 +43,14 @@ public class CustomerServiceImpl implements CustomerService {
 	public boolean logincheckretaile(RetailerInfo retailerInfo) {
 		boolean user_exists = customerDao.logincheckretailer(retailerInfo);
 		return user_exists;
+	}
+
+	@Override
+	@Transactional
+	public List<RetailerInfo> getallRetailer() {
+		System.out.println("Inside retailer");
+		List<RetailerInfo> retailerInfo= customerDao.getallRetailer();
+		return retailerInfo;
 	}
 
 	

@@ -55,3 +55,22 @@ form label {
   .image-prop{
     width:100%;
   }
+  
+  .retailer-card{
+    height:246px;
+   background-color:black ;
+}
+.rl-n{
+    font-size:19px!important;
+    padding-top: 5%;
+    padding-left: 6%;
+}
+.rl-p{
+    padding-top: 5%;
+    padding-left: 6%;
+    line-height: 0px;
+}
+.rl-btn{
+    margin-left:2%;
+    margin-top:2%;
+}

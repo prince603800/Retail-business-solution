@@ -1,5 +1,7 @@
 package com.retailproject.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,9 +66,16 @@ public class CustomerController {
 	public String clogin(@ModelAttribute ("customerInfo") CustomerInfo customerInfo,Model theModel) {
 		
 		
-		boolean user_exists = customerService.logincheckcustomer(customerInfo);
+		List<CustomerInfo> list = customerService.logincheckcustomer(customerInfo);
+		CustomerInfo customer = list.get(0);
+		System.out.println(customer.getFname());
 		
-		if(user_exists==true) {
+		if(!list.isEmpty()) {
+			List<RetailerInfo> retailersInfo = customerService.getallRetailer();
+	        System.out.println(retailersInfo.isEmpty());
+	        	        
+			theModel.addAttribute("retailersInfo", retailersInfo);
+			theModel.addAttribute("validcustomer", customer);
 			
 			return "customer-dashboard";
 		}
