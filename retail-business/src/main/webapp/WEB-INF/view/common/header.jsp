@@ -15,7 +15,7 @@
               <a class="nav-link" href="${pageContext.request.contextPath}/customerController/cr-page">Customer Registration</a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/customerController/re-page">Retailer Registration</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/retailerController/re-page">Retailer Registration</a>
                   </li>
             <li class="nav-item">
               <a class="nav-link" href="${pageContext.request.contextPath}/customerController/login-form">Login</a>

@@ -22,12 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customerDao.registerCustomer(customerInfo);
 	}
 
-	@Override
-	@Transactional
-	public void registerRetailer(RetailerInfo retailerInfo) {
-		customerDao.registerRetailer(retailerInfo);
-		
-	}
+	
 
 	@Override
 	@Transactional
@@ -38,12 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return list;
 	}
 
-	@Override
-	@Transactional
-	public boolean logincheckretaile(RetailerInfo retailerInfo) {
-		boolean user_exists = customerDao.logincheckretailer(retailerInfo);
-		return user_exists;
-	}
+	
 
 	@Override
 	@Transactional

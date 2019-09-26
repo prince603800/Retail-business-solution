@@ -25,7 +25,11 @@ $('form[id="second_form"]').validate({
   messages: {
     fname: 'This field is required',
     lname: 'This field is required',
-    user_email: 'Enter a valid email',
+    user_email: 
+    			{
+    			required:'Enter a valid email',
+    			remote:"Email address already in use"
+    				},
 	panNo:'This field is required',
 	address:'This field is required',
 	phoneNo:'This field is required',

@@ -26,7 +26,7 @@
             </div>
             <div class = "col-sm-12 col-md-4 form-div">   
                 <h2>Login As Retailer</h2>
-                    <form:form action="re-login" method = "post" modelAttribute = "retailerInfo" id="login-form">               
+                    <form:form action="${pageContext.request.contextPath}/retailerController/re-login" method = "post" modelAttribute = "retailerInfo" id="login-form">               
                        <div class="form-group">
                              <form:input type="email" class="form-control" id="user_email" placeholder="Enter email" path="user_email"/>
                         </div>

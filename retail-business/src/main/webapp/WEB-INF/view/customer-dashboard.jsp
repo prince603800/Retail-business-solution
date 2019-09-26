@@ -18,36 +18,21 @@
 	 <div class = "container">
             <div class = "row">
              	<c:forEach items = "${retailersInfo}" var = "listRetailers">
+               <c:url var = "selectRetailer" value = "/customerController/customerdashboard-retailerdetail">
+               		<c:param name = "retailerId" value = "${listRetailers.retailerId}"></c:param>
+               		<c:param name = "customerId" value = "${validcustomer.customerId}"></c:param>
+               </c:url>
                 <div class = "col-sm-4">
                     <div class = "retailer-card">
                         <p class = "rl-n">RetailerName: <span>${listRetailers.fname}  ${listRetailers.lname}</span></p>
                         <p class = "rl-p">Address: <span>${listRetailers.address}</span> </p>
                         <p class = "rl-p">Vat No: <span>${listRetailers.vatNo}</span></p>
                         <p class = "rl-p">Phone No: <span>${listRetailers.phoneNo}</span></p>
-                        <button class = "rl-btn">Select Retailer</button>
+                        <a class = "rl-btn" href = "${selectRetailer}">Select Retailer</a>
                     </div>
                 </div>
                 </c:forEach>
                </div>
-          </div>
-	
-	
-	
-	
-
-	
-	List of all Retailers
-	<c:forEach items = "${retailersInfo}" var = "listRetailers">
-			${listRetailers.fname}<br>
-			${listRetailers.lname}<br>
-		
-	</c:forEach>
-	
-	
-	
-	
-	Select a Retailer
-	
-	
+          </div>	
 </body>
 </html>

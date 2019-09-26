@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.retailproject.entity.CustomerInfo;
 import com.retailproject.entity.RetailerInfo;
@@ -31,12 +32,7 @@ public class CustomerController {
 		return "customer-registration";
 	}
 	
-	@GetMapping("/re-page")
-	public String retailerRegistrationPage(Model theModel) {
-		RetailerInfo retailerInfo = new RetailerInfo();
-		theModel.addAttribute(retailerInfo);
-		return "retailer-registration";
-	}
+	
 	
 	@PostMapping("/customer-registration")
 	public String registrationConfirmation(@ModelAttribute ("customerInfo") CustomerInfo customerInfo) {
@@ -46,12 +42,7 @@ public class CustomerController {
 		return "redirect:/customerController/login-form";
 	}
 	
-	@PostMapping("/retailer-registration")
-	public String registrationConfirmation(@ModelAttribute ("retailerInfo") RetailerInfo retailerInfo) {
-		customerService.registerRetailer(retailerInfo);
-		
-		return "redirect:/customerController/login-form";
-	}
+	
 	
 	@GetMapping("/login-form")
 	public String loginform(Model theModel) {
@@ -67,15 +58,14 @@ public class CustomerController {
 		
 		
 		List<CustomerInfo> list = customerService.logincheckcustomer(customerInfo);
-		CustomerInfo customer = list.get(0);
-		System.out.println(customer.getFname());
+		
 		
 		if(!list.isEmpty()) {
 			List<RetailerInfo> retailersInfo = customerService.getallRetailer();
 	        System.out.println(retailersInfo.isEmpty());
 	        	        
 			theModel.addAttribute("retailersInfo", retailersInfo);
-			theModel.addAttribute("validcustomer", customer);
+			theModel.addAttribute("validcustomer", list.get(0));
 			
 			return "customer-dashboard";
 		}
@@ -86,20 +76,16 @@ public class CustomerController {
 	
 	}
 	
-	@PostMapping("/re-login")
-	public String rlogin(@ModelAttribute ("retailerInfo") RetailerInfo retailerInfo) {
-		System.out.println(retailerInfo.getUser_email());
-		System.out.println(retailerInfo.getPsword1());
+	
+	
+	@GetMapping("/customerdashboard-retailerdetail")
+	public String customerdashboardRetailerDetail(@RequestParam("retailerId") int retailerId,@RequestParam("customerId") int  customerId) {
 		
-		boolean user_exists= customerService.logincheckretaile(retailerInfo);
+		System.out.println(retailerId);
+		System.out.println(customerId);
 		
-		if(user_exists==true) {
-			return "retailer-dashboard";
-		}
-		
-		else {
-			return "login-form";
+		return "customerdashboard-retailerdetail";
 	}
-	}
+	
 	
 }

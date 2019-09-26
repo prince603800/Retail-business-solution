@@ -1,9 +1,6 @@
 package com.retailproject.dao;
 
 import java.util.List;
-
-
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -26,12 +23,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		session.save(customerInfo);
 	}
 
-	@Override
-	public void registerRetailer(RetailerInfo retailerInfo) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(retailerInfo);
-		
-	}
+
 
 	@Override
 	public List<CustomerInfo> logincheckcustomer(CustomerInfo customerInfo) {
@@ -41,43 +33,30 @@ public class CustomerDaoImpl implements CustomerDao{
 		theQuery.setParameter("psword1", customerInfo.getPsword1());
 		@SuppressWarnings("unchecked")
 		List<CustomerInfo> list =theQuery.getResultList();
-		CustomerInfo c = list.get(0);
-		System.out.println(c.getFname());
-		if(list.isEmpty()) {
-			System.out.println("The list is empty");
-			return list;
-		}
-		else {
-			System.out.println("The list is not empty");
-			return list;
-		}
-			
+		/*
+		 * CustomerInfo c = list.get(0); System.out.println(c.getFname());
+		 * if(list.isEmpty()) { System.out.println("The list is empty"); return list; }
+		 * else { System.out.println("The list is not empty"); return list; }
+		 */
+		return list;	
 	}
 
-	@Override
-	public boolean logincheckretailer(RetailerInfo retailerInfo) {
-		Session session = sessionFactory.getCurrentSession();
-		Query theQuery = session.createQuery("FROM RetailerInfo e WHERE e.user_email =:user_email and e.psword1=:psword1");
-		theQuery.setParameter("user_email", retailerInfo.getUser_email());
-		theQuery.setParameter("psword1", retailerInfo.getPsword1());
-		@SuppressWarnings("unchecked")
-		List<RetailerInfo> list =theQuery.getResultList();
-		if(list.isEmpty()) {
-			System.out.println("The list is empty");
-			return false;
-		}
-		else {
-			System.out.println("The list is not empty");
-			return true;
-		}
-	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<RetailerInfo> getallRetailer() {
 		Session session = sessionFactory.getCurrentSession();
 		
-		Query<RetailerInfo> theQuery = session.createQuery("from RetailerInfo",RetailerInfo.class);
+		
+		  Query<RetailerInfo> theQuery =
+		  session.createQuery("from RetailerInfo",RetailerInfo.class);
+		 
+		/*
+		 * Query<RetailerInfo> theQuery = session.
+		 * createQuery("select re.retailerId,re.fname,re.lname,re.user_email,re.vatNo,re.address,re.phoneNo from RetailerInfo re"
+		 * );
+		 */
 		
 		//execute query and get result list
 		List<RetailerInfo> retailerInfo = theQuery.getResultList();
